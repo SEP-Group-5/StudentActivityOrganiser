@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>UTS:SAOS</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script>
+	$(function() {
+		$("#navbar").load("navbar.html");
+	});
+</script>
+</head>
+<body>
+	<div id="navbar"></div>
+	<div class="container">
+		<div class="page-header">
+			<h1>Manage My Activities</h1>
+		</div>
+		<div id="manage-activities">Manage activities here. <a href="createActivity.html">Create new activity</a></div>
+		<table id="my-activities" class="table table-hover">
+			<thead>
+				<tr>
+					<th class="col-sm-4">Title</th>
+					<th class="col-sm-2">Starting</th>
+					<th class="col-sm-2">Ending</th>
+					<th class="col-sm-2">Participants</th>
+					<th class="col-sm-2">Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Lab Coat Day</td>
+					<td>13:00 26/08/2015</td>
+					<td>15:00 26/08/2015</td>
+					<td>23</td>
+					<td><a href="activity.html">Approved </a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
