@@ -11,5 +11,7 @@ Hi there!
 Session: <%= session.getAttribute("name") %> <p/>
 
 Request: <%= request.getAttribute("name") %> <p/>
+
+<a href="createActivity">Create an activity</a>
 </body>
 </html>

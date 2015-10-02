@@ -19,4 +19,10 @@ public class SaosController {
 		model.put("name", "River");
 		return mv;
 	}
+	
+	@RequestMapping("/createActivity")
+	public ModelAndView testingDisCrap() {
+		ModelAndView mv = new ModelAndView("createActivity");
+		return mv;
+	}
 }
