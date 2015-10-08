@@ -35,6 +35,11 @@ public class Activity {
 	{
 		return this.status.equals(status);
 	}
+	
+	public boolean matches(int id)
+	{
+	    return this.id == id;
+	}
 
 	public int getId() {
 		return id;

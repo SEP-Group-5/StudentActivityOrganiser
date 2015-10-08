@@ -6,6 +6,7 @@ public class Student {
 	private String lastName;
 	private String email;
 	private int phoneNumber;
+	private char[] password;
 
 	public Student(int id, String firstName, String lastName, String email, int phoneNumber) {
 		super();

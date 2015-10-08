@@ -15,5 +15,15 @@ public class Activities {
 	{
 	   activities.add(new Activity(++id, title, startDate, endDate, host, location, description, cost, capacity));
 	}
+	
+	public Activity find(int id)
+	{
+		for(Activity activity : activities)
+		{
+			if(activity.matches(id))
+				return activity;
+		}
+		return null;
+	}
 
 }
