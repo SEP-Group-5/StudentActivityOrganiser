@@ -1,28 +1,31 @@
 package com.saos.web.controllers;
+
 import java.util.*;
 
 public class Activity {
 	private int id;
 	private String title;
-	private Date startDate;
-	private Date endDate;
+	private Date start;
+	private Date end;
+	private Date rsvp;
 	private Student host;
 	private String location;
 	private String description;
 	private double cost;
 	private int capacity;
 	private Status status;
-	private int participantCount;
 	private Students participants;
-	
 
-	public Activity(int id, String title, Date startDate, Date endDate, Student host, String location,
+	public Activity() {
+	}
+
+	public Activity(int id, String title, Date start, Date end, Student host, String location,
 			String description, double cost, int capacity) {
 		super();
 		this.id = id;
 		this.title = title;
-		this.startDate = startDate;
-		this.endDate = endDate;
+		this.start = start;
+		this.end = end;
 		this.host = host;
 		this.location = location;
 		this.description = description;
@@ -31,34 +34,48 @@ public class Activity {
 		this.status = Status.Open;
 	}
 
-	public boolean matches(Status status)
-	{
+	public boolean matches(Status status) {
 		return this.status.equals(status);
 	}
-	
-	public boolean matches(int id)
-	{
-	    return this.id == id;
+
+	public boolean matches(int id) {
+		return this.id == id;
+	}
+
+	public Date getStart() {
+		return start;
+	}
+
+	public void setStart(Date start) {
+		this.start = start;
+	}
+
+	public Date getEnd() {
+		return end;
+	}
+
+	public void setEnd(Date end) {
+		this.end = end;
+	}
+
+	public Date getRsvp() {
+		return rsvp;
+	}
+
+	public void setRsvp(Date rsvp) {
+		this.rsvp = rsvp;
+	}
+
+	public Students getParticipants() {
+		return participants;
+	}
+
+	public void setParticipants(Students participants) {
+		this.participants = participants;
 	}
 
 	public int getId() {
 		return id;
-	}
-
-	public Date getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
 	}
 
 	public Student getHost() {
@@ -67,10 +84,6 @@ public class Activity {
 
 	public void setHost(Student host) {
 		this.host = host;
-	}
-
-	public int getParticipantCount() {
-		return participantCount;
 	}
 
 	public void setId(int id) {
@@ -116,7 +129,7 @@ public class Activity {
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
-	
+
 	public Status getStatus() {
 		return status;
 	}
