@@ -8,7 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
+/***
+ * 
+ * @author bernicehu
+ * NOTE: This class only for testing spring mvc purpose, not part of the solution
+ */
 @Controller
 public class SaosController {
 	
