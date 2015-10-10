@@ -2,12 +2,21 @@ package com.saos.web.controllers;
 
 import java.util.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Activity {
 	private int id;
 	private String title;
+	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date start;
+	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date end;
+	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date rsvp;
+	
 	private Student host;
 	private String location;
 	private String description;
@@ -21,7 +30,6 @@ public class Activity {
 
 	public Activity(int id, String title, Date start, Date end, Student host, String location,
 			String description, double cost, int capacity) {
-		super();
 		this.id = id;
 		this.title = title;
 		this.start = start;

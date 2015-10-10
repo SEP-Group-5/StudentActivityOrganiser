@@ -12,12 +12,15 @@ public class ActivityController {
 
 	//create activity
 	@RequestMapping(value = "/createActivity", method = RequestMethod.GET)
-	public ModelAndView createActivity() {
-		return new ModelAndView("createActivity", "command", new Activity());
+	public String createActivity(ModelMap model) {
+		Activity activity = new Activity();
+		model.addAttribute("activity", activity);
+		return "createActivity";
 	}
 	
+	
 	//get activity details
-	@RequestMapping(value = "/ActivityDetails", method = RequestMethod.POST)
+	@RequestMapping(value ="/createActivity", method = RequestMethod.POST)
 	public String getActivity(@ModelAttribute("SpringWeb")Activity activity, ModelMap model)
 	{
 		model.addAttribute("title", activity.getTitle());
@@ -28,6 +31,13 @@ public class ActivityController {
 		model.addAttribute("rsvp", activity.getRsvp());
 		model.addAttribute("cost", activity.getCost());
 		model.addAttribute("capacity", activity.getCapacity());
-		return "home";
+		return "submittedActivity";
 	}
+	
+//	@InitBinder
+//	public void initBinder(WebDataBinder binder) {
+//	    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//	    dateFormat.setLenient(false);
+//	    binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+//	}
 }

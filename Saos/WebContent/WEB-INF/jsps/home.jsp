@@ -12,42 +12,6 @@
 </head>
 <body>
 
-<h2>Submitted Activity Information</h2>
-   <table>
-    <tr>
-        <td>Title</td>
-        <td>${title}</td>
-    </tr>
-    <tr>
-        <td>Description</td>
-        <td>${description}</td>
-    </tr>
-    <tr>
-        <td>Location</td>
-        <td>${location}</td>
-    </tr>
-        <tr>
-        <td>Location</td>
-        <td>${location}</td>
-    </tr>
-        <tr>
-        <td>Start</td>
-        <td>${start}</td>
-    </tr>
-        <tr>
-        <td>End</td>
-        <td>${end}</td>
-    </tr>
-        <tr>
-        <td>Cost</td>
-        <td>${cost}</td>
-    </tr>
-        <tr>
-        <td>Capacity</td>
-        <td>${capacity}</td>
-    </tr>
-</table>  
-
 Hi there!
 Session: <%= session.getAttribute("name") %> <p/>
 
