@@ -7,15 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script>
-$(document).ready(function() { $("#end").datepicker(); });
-</script>
-
-<title>UTS:SAOS</title>
+<title>UTS:SAOS - Create new activity</title>
 </head>
 
 <body>
@@ -32,71 +24,69 @@ $(document).ready(function() { $("#end").datepicker(); });
 				<div class="modal-body">
 
 					<div class="form-group">
-						<label for="title" class="control-label col-lg-1">Title:</label>
-						<div class="col-lg-11">
+						<label for="title" class="control-label col-md-1">Title:</label>
+						<div class="col-md-11">
 							<form:input type="text" path="title" id="title"
 								class="form-control input-sm" />
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="description" class="control-label col-lg-1">Description:</label>
-						<div class="col-lg-11">
+						<label for="description" class="control-label col-md-1">Description:</label>
+						<div class="col-md-11">
 							<form:input type="text" path="description" id="description"
 								class="form-control input-sm" />
-							<!-- 						 <textarea class="form-control" id="description" rows="3"></textarea> -->
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="location" class="control-label col-lg-1">Location:</label>
-						<div class="col-lg-11">
+						<label for="location" class="control-label col-md-1">Location:</label>
+						<div class="col-md-11">
 							<form:input type="text" path="location" id="location"
 								class="form-control input-sm" />
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="start" class="control-label col-lg-1">Start:</label>
-						<div class="col-lg-3">
+						<label for="start" class="control-label col-md-1">Start:</label>
+						<div class="col-md-3">
 							<form:input type="text" path="start" id="start"
-								class="form-control input-sm" />
+								class="form-control input-sm datetimepicker" />
 						</div>
-						<label for="end" class="control-label col-lg-1">End:</label>
-						<div class="col-lg-3">
+						<label for="end" class="control-label col-md-1">End:</label>
+						<div class="col-md-3">
 							<form:input type="text" path="end" id="end"
-								class="form-control input-sm" />
+								class="form-control input-sm datetimepicker" />
 						</div>
-						<label for="rsvp" class="control-label col-lg-1">RSVP:</label>
-						<div class="col-lg-3">
+						<label for="rsvp" class="control-label col-md-1">RSVP:</label>
+						<div class="col-md-3">
 							<form:input type="text" path="rsvp" id="rsvp"
-								class="form-control input-sm" />
+								class="form-control input-sm datetimepicker" />
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="cost" class="control-label col-lg-1">Cost:</label>
-						<div class="col-lg-3">
+						<label for="cost" class="control-label col-md-1">Cost:</label>
+						<div class="col-md-3">
 							<div class=" input-group">
 								<span class="input-group-addon">$</span>
 								<form:input type="text" path="cost" id="cost"
 									class="form-control input-sm" />
 							</div>
 						</div>
-						<label for="capacity" class="control-label col-lg-1">Capacity:</label>
-						<div class="col-lg-3">
+						<label for="capacity" class="control-label col-md-1">Capacity:</label>
+						<div class="col-md-3">
 							<form:input type="text" path="capacity" id="capacity"
 								class="form-control input-sm" />
 						</div>
 					</div>
-
 				</div>
 
 				<div class="modal-footer">
-					<!-- 					<button type="button" class="btn btn-default">Cancel</button> -->
-					<!-- 					<button type="submit" class="btn btn-default btn-success">Submit</button> -->
 					<div class="form-actions floatRight">
-						<input type="submit" value="Submit" class="btn btn-primary btn-sm">
+						<button type="button" class="btn btn-default">Cancel</button>
+						<input type="submit" value="Submit"
+							class="btn btn-default btn-success">
 					</div>
 				</div>
 			</form:form>

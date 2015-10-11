@@ -5,11 +5,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="<c:url value="/resources/bootstrap/css/bootstrap.css" />"
-	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="<c:url value="/resources/bootstrap/css/bootstrap.css" />">
+<link rel="stylesheet"
+	href="<c:url value="/resources/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css"/>">
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>"></script>
+<script
+	src="<c:url value="/resources/bootstrap-datetimepicker/js/moment.js"/>"></script>
+<script
+	src="<c:url value="/resources/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"/>"></script>
+
+<script>
+	$(function() {
+		$('.datetimepicker').datetimepicker({
+			format : 'h:mmA Do MMM YYYY'
+		});
+	});
+</script>
+
 </head>
 <nav class="navbar navbar-default">
 <div class="container">
