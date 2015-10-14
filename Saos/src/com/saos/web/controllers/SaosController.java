@@ -27,7 +27,7 @@ public class SaosController {
 	}
 	*/
 	
-	@RequestMapping("/")
+	@RequestMapping("/testing")
 	public ModelAndView testingDisCrap() {
 		ModelAndView mv = new ModelAndView("createActivity");
 		return mv;
