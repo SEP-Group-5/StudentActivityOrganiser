@@ -1,19 +1,38 @@
 package com.saos.web.controllers;
 
-public class Student {
-	private int id;
-	private String firstName;
-	private String lastName;
-	private String email;
-	private int phoneNumber;
-	private char[] password;
+import java.io.Serializable;
 
-	public Student(int id, String firstName, String lastName, String email, int phoneNumber) {
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Student implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	@XmlElement(name = "id")
+	private int id;
+	@XmlElement(name = "firstName")
+	private String firstName;
+	@XmlElement(name = "lastName")
+	private String lastName;
+	@XmlElement(name = "email")
+	private String email;
+	@XmlElement(name = "phoneNumber")
+	private int phoneNumber;
+	@XmlElement(name = "password")
+	private String password;
+
+	public Student() {
+		
+	}
+	
+	public Student(int id, String firstName, String lastName, String email, int phoneNumber, String password) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
+		this.password = password;
 	}
 
 	public int getId() {
@@ -54,6 +73,14 @@ public class Student {
 
 	public void setPhoneNumber(int phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override

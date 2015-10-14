@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+	<student>
+        <id>1</id>
+        <firstName>Rebecca</firstName>
+        <lastName>Ao</lastName>
+        <email>rebecca.ao@uts.edu.au</email>
+        <phoneNumber>987654321</phoneNumber>
+        <password>1</password>
+	</student>
+</students>

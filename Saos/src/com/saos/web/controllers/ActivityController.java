@@ -17,6 +17,20 @@ public class ActivityController {
 		return mv;
 	}
 
+	//login action page
+	@RequestMapping("/loginAction")
+	public ModelAndView loginAction() {
+		ModelAndView mv = new ModelAndView("actions/loginAction");
+		return mv;
+	}
+	
+	//logout page
+	@RequestMapping("/logout")
+	public ModelAndView logout() {
+		ModelAndView mv = new ModelAndView("actions/logout");
+		return mv;
+	}
+
 	//upcoming activities
 	@RequestMapping("/viewActivities")
 	public ModelAndView getUpcomingActivities() {

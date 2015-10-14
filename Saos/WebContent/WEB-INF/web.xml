@@ -19,4 +19,14 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+ 	<!-- <security-constraint>
+		<display-name>Restrict direct access to action folder</display-name>
+		<web-resource-collection>
+			<web-resource-name>Restricted action folder</web-resource-name>
+			<url-pattern>/actions/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint />
+	</security-constraint> -->
+	
+
 </web-app>
