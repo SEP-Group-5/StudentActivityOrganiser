@@ -12,7 +12,9 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script>
-$(document).ready(function() { $("#end").datepicker(); });
+	$(document).ready(function() {
+		$("#end").datepicker();
+	});
 </script>
 
 <title>UTS:SAOS</title>
@@ -35,7 +37,8 @@ $(document).ready(function() { $("#end").datepicker(); });
 						<label for="title" class="control-label col-lg-1">Title:</label>
 						<div class="col-lg-11">
 							<form:input type="text" path="title" id="title"
-								class="form-control input-sm" />
+								class="form-control input-sm" /><br/>
+								<form:errors path="title"></form:errors>
 						</div>
 					</div>
 

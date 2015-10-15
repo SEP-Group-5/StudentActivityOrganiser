@@ -2,10 +2,18 @@ package com.saos.web.controllers;
 
 import java.util.*;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.persistence.*;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Activity {
+	
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	
+	@Size(min=1, max=1, message="Title must be fewer than n characters")
 	private String title;
 	
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -18,12 +26,20 @@ public class Activity {
 	private Date rsvp;
 	
 	private Student host;
+	
+	@NotNull(message="Location is mandatory")
 	private String location;
+	
 	private String description;
+	
 	private double cost;
+	
 	private int capacity;
-	private Status status;
-	private Students participants;
+	
+	private String status;
+	
+	@Column
+	private List<Student> participants;
 
 	public Activity() {
 	}
@@ -39,10 +55,10 @@ public class Activity {
 		this.description = description;
 		this.cost = cost;
 		this.capacity = capacity;
-		this.status = Status.Open;
+		this.status = "Open";
 	}
 
-	public boolean matches(Status status) {
+	public boolean matches(String status) {
 		return this.status.equals(status);
 	}
 
@@ -74,11 +90,11 @@ public class Activity {
 		this.rsvp = rsvp;
 	}
 
-	public Students getParticipants() {
+	public List<Student> getParticipants() {
 		return participants;
 	}
 
-	public void setParticipants(Students participants) {
+	public void setParticipants(List<Student> participants) {
 		this.participants = participants;
 	}
 
@@ -138,11 +154,13 @@ public class Activity {
 		this.capacity = capacity;
 	}
 
-	public Status getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Status status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
+
+
 }

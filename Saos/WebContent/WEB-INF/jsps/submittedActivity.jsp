@@ -11,6 +11,10 @@
 
 <h2>Submitted Activity Information</h2>
    <table>
+   <tr>
+        <td>ID</td>
+        <td>${id}</td>
+    </tr>
     <tr>
         <td>Title</td>
         <td>${title}</td>
@@ -30,6 +34,11 @@
         <tr>
         <td>End</td>
         <td>${end}</td>
+    </tr>
+       </tr>
+        <tr>
+        <td>RSVP</td>
+        <td>${rsvp}</td>
     </tr>
         <tr>
         <td>Cost</td>
