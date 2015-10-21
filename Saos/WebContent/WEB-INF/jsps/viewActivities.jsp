@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>UTS:SAOS - Managed My Activities</title>
+<title>UTS:SAOS - Upcoming Activities</title>
 </head>
 
 <body>
 	<jsp:include page="navigationBar.jsp" />
 	<div class="container">
 		<div class="page-header">
-			<h1>Manage My Activities</h1>
+						<h1>Upcoming activities</h1>		
 		</div>
 		<div id="manage-activities-content">
 			Manage activities you have created <br>
@@ -41,7 +41,7 @@
 					 Class.forName("com.mysql.jdbc.Driver");
 					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
 					 Statement s2 = conn2.createStatement();
-					 ResultSet r2 = s2.executeQuery("Select * from activity where hostId = '0'");
+					 ResultSet r2 = s2.executeQuery("Select * from activity,studentactivity where studentId = "+session.getAttribute("user")+" and activity.activityId = studentactivity.activityId;");
 					 while(r2.next())
 					 {
 					 %>

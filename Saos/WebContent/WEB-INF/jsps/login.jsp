@@ -53,6 +53,7 @@
 						 r.close();
 						 conn.close();
 						 s.close();
+						 session.setAttribute("user", request.getParameter("id"));
 					 %>
 					 <jsp:forward page="viewActivities.jsp" />
 					 <%	 

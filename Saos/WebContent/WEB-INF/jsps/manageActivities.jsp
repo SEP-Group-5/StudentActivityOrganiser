@@ -33,12 +33,33 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href="viewSpecificActivity">Lab Coat Day</a></td>
-					<td>13:00 26/08/2015</td>
-					<td>15:00 26/08/2015</td>
-					<td>23</td>
-					<td>Approved</td>
+					<%@ page import="java.sql.*"%>
+				 <% 
+				 try {
+					 Class.forName("com.mysql.jdbc.Driver");
+					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
+					 Statement s2 = conn2.createStatement();
+					 ResultSet r2 = s2.executeQuery("Select * from activity where hostID = " + session.getAttribute("user"));
+					 while(r2.next())
+					 {
+					 %>
+					<td><%=r2.getString(2) %></a></td>
+					<td><%=r2.getString(4) %></td>
+					<td><%=r2.getString(5) %></td>
+					<td><%=r2.getString(9) %></td>
+					<td><%=r2.getString(8) %></td>
 				</tr>
+					 <%
+					 }
+					 r2.close();
+					 conn2.close();
+				 	 s2.close();
+				 } catch (Exception ex)
+				{
+					 out.println("Error with database; check the connection string\n and make sure you have the proper library");
+				}
+				 
+            %>
 			</tbody>
 		</table>
 	</div>
