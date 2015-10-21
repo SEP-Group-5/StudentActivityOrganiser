@@ -4,51 +4,64 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>UTS:SAOS - Upcoming Activities</title>
+<title>UTS:SAOS - Managed My Activities</title>
 </head>
 
 <body>
 	<jsp:include page="navigationBar.jsp" />
-	<%@ page import="java.sql.*"%>
-	<%
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
-			PreparedStatement s2 = conn2.prepareStatement("Select * from activity where hostId = '" + request.getParameter("id") + "'");
-			ResultSet r2 = s2.executeQuery();
-			while (r2.next()) {
-	%>
-	<%
-		}
-			r2.close();
-			conn2.close();
-			s2.close();
-		} catch (Exception ex) {
-			out.println("Error with database; check the connection string\n and make sure you have the proper library");
-		}
-	%>
 	<div class="container">
 		<div class="page-header">
-			<h1>Upcoming activities</h1>
+			<h1>Manage My Activities</h1>
 		</div>
-		<table id="upcoming-activities" class="table table-hover">
+		<div id="manage-activities-content">
+			Manage activities you have created <br>
+			<a href="createActivity"><button id="create-activity-button"
+					type="button" class="btn btn-info">
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					Create new activity
+				</button></a>
+		</div>
+	
+		<table id="my-activities" class="table table-hover">
 			<thead>
 				<tr>
 					<th class="col-sm-4">Title</th>
 					<th class="col-sm-2">Starting</th>
 					<th class="col-sm-2">Ending</th>
 					<th class="col-sm-2">Participants</th>
-					<th class="col-sm-2">Cost</th>
+					<th class="col-sm-2">Status</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href="viewSpecificActivity">Lab Coat Day</a></td>
-					<td>13:00 26/08/2015</td>
-					<td>15:00 26/08/2015</td>
-					<td>23</td>
-					<td>$10</td>
+				
+				<%@ page import="java.sql.*"%>
+				 <% 
+				 try {
+					 Class.forName("com.mysql.jdbc.Driver");
+					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
+					 Statement s2 = conn2.createStatement();
+					 ResultSet r2 = s2.executeQuery("Select * from activity where hostId = '0'");
+					 while(r2.next())
+					 {
+					 %>
+					<td><%=r2.getString(2) %></a></td>
+					<td><%=r2.getString(4) %></td>
+					<td><%=r2.getString(5) %></td>
+					<td><%=r2.getString(9) %></td>
+					<td><%=r2.getString(10) %></td>
 				</tr>
+					 <%
+					 }
+					 r2.close();
+					 conn2.close();
+				 	 s2.close();
+				 } catch (Exception ex)
+				{
+					 out.println("Error with database; check the connection string\n and make sure you have the proper library");
+				}
+				 
+            %>
 			</tbody>
 		</table>
 	</div>
