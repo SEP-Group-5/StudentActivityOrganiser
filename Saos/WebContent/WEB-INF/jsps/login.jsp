@@ -24,19 +24,47 @@
 		</div>
 	</div>
 	<div id="content" class="col-md-4 col-md-offset-4">
-		<form id="login-form" class="well col-md-8 col-md-offset-2"
-			action="viewActivities">
+		<form id="login-form" class="well col-md-8 col-md-offset-2">
 			<legend>Login into UTS:SAOS</legend>
 			<div class="form-group">
 				<label>Student ID</label> <input class="form-control" type="text"
 					name="id">
 			</div>
 			<div class="form-group">
-				<label>Password</label> <input class="form-control" type="password"
-					name="password">
+				<label>Password</label> <input class="form-control" type="password" name="password">
 			</div>
 			<button type="submit"
-				class="btn btn-primary btn-lg btn-block btn-success">LOGIN</button>
+				class="btn btn-primary btn-lg btn-block btn-success">LOGIN</button>	
+			</div>
+
+<%@ page import="java.sql.*"%>
+				 <% 
+				 try {
+					 Class.forName("com.mysql.jdbc.Driver");
+					 out.println("Driver working! \n");
+					 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
+					 out.println("connected to database! \n");
+					 PreparedStatement s = conn.prepareStatement("Select * from student where studentId = '" + request.getParameter("id")
+					 + "' and password = '" + request.getParameter("password") +"'");
+					 out.println("Fields can be checked! \n");
+					 ResultSet r = s.executeQuery();
+					 if(r.next())
+					 {
+						 r.close();
+						 conn.close();
+						 s.close();
+					 %>
+					 <jsp:forward page="viewActivities.jsp" />
+					 <%	 
+					 }
+				 } catch (Exception ex)
+					{
+						 out.println("Error");
+					}
+					 
+				
+            %>
+
 		</form>
 	</div>
 </body>

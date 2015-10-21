@@ -15,5 +15,25 @@
 		</div>
 		<div id="upcoming-activities">Upcoming activities here.</div>
 	</div>
+<%@ page import="java.sql.*"%>
+				 <% 
+				 try {
+					 Class.forName("com.mysql.jdbc.Driver");
+					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
+					 PreparedStatement s2 = conn2.prepareStatement("Select * from activity where hostId = '" + request.getParameter("id") +"'");
+					 ResultSet r2 = s2.executeQuery();
+					 while(r2.next())
+					 {%>
+						 <%
+					 }
+					 r2.close();
+					 conn2.close();
+				 	 s2.close();
+				 } catch (Exception ex)
+				{
+					 out.println("Error with database; check the connection string\n and make sure you have the proper library");
+				}
+				 
+            %>
 </body>
 </html>
