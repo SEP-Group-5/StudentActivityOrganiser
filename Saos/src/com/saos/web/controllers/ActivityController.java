@@ -24,6 +24,19 @@ public class ActivityController {
 		return mv;
 	}
 	
+	//specific upcoming activities
+	@RequestMapping("/viewSpecificActivity")
+	public ModelAndView getSpecificActivityInformation() {
+		ModelAndView mv = new ModelAndView("viewSpecificActivity");
+		return mv;
+	}
+	
+	@RequestMapping("/viewRegisteredActivities")
+	public ModelAndView getRegisteredActivitiesInformation() {
+		ModelAndView mv = new ModelAndView("viewRegisteredActivities");
+		return mv;
+	}
+	
 	// create activity
 	@RequestMapping(value = "/createActivity", method = RequestMethod.GET)
 	public String createActivity(ModelMap model) {

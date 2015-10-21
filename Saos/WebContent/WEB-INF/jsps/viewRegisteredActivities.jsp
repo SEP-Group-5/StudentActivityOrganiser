@@ -11,24 +11,19 @@
 	<jsp:include page="navigationBar.jsp" />
 	<div class="container">
 		<div class="page-header">
-			<h1>Manage My Activities</h1>
+			<h1>Registered activities</h1>
 		</div>
-		<div id="manage-activities-content">
-			Manage activities you have created <br>
-			<a href="createActivity"><button id="create-activity-button"
-					type="button" class="btn btn-info">
-					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-					Create new activity
-				</button></a>
+		<div id="view-registered-activities-content">
+			View activities you have registered for<br>
 		</div>
-		<table id="my-activities" class="table table-hover">
+		<table id="my-registered-activities" class="table table-hover">
 			<thead>
 				<tr>
 					<th class="col-sm-4">Title</th>
 					<th class="col-sm-2">Starting</th>
 					<th class="col-sm-2">Ending</th>
 					<th class="col-sm-2">Participants</th>
-					<th class="col-sm-2">Status</th>
+					<th class="col-sm-2">Host</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -37,7 +32,7 @@
 					<td>13:00 26/08/2015</td>
 					<td>15:00 26/08/2015</td>
 					<td>23</td>
-					<td>Approved</td>
+					<td>Bob</td>
 				</tr>
 			</tbody>
 		</table>
