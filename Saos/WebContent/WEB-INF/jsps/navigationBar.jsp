@@ -44,14 +44,23 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li><a href="viewActivities"">Upcoming Activities</a></li>
+			<li id="viewActivities" class="dropdown"><a href="#"
+				class="dropdown-toggle" data-toggle="dropdown" role="button"
+				aria-haspopup="true" aria-expanded="false">Upcoming Activities <span
+					class="caret"></span>
+			</a>
+				<ul class="dropdown-menu">
+					<li><a href="viewActivities">All upcoming activities</a></li>
+					<li><a href="viewRegisteredActivities">Registered upcoming
+							activities</a></li>
+				</ul></li>
 			<li><a href="manageActivities">Manage My Activities</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li id="logged-in-user" class="dropdown"><a href="#"
 				class="dropdown-toggle" data-toggle="dropdown" role="button"
-				aria-haspopup="true" aria-expanded="false">Signed in as <%= request.getParameter("id") %>
-					<span class="caret"></span>	
+				aria-haspopup="true" aria-expanded="false">Signed in as <%=request.getParameter("id")%>
+					+ <span class="caret"></span>
 			</a>
 				<ul class="dropdown-menu">
 					<li><a href="#">Logout</a></li>
