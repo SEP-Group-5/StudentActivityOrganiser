@@ -41,7 +41,7 @@
 					 Class.forName("com.mysql.jdbc.Driver");
 					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
 					 Statement s2 = conn2.createStatement();
-					 ResultSet r2 = s2.executeQuery("Select * from activity,studentactivity where studentId = "+session.getAttribute("user")+" and activity.activityId = studentactivity.activityId;");
+					 ResultSet r2 = s2.executeQuery("Select * from activity;");
 					 while(r2.next())
 					 {
 					 %>

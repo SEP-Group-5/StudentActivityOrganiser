@@ -28,7 +28,7 @@
 					<th class="col-sm-2">Starting</th>
 					<th class="col-sm-2">Ending</th>
 					<th class="col-sm-2">Participants</th>
-					<th class="col-sm-2">Status</th>
+					<th class="col-sm-2">Cost</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -48,6 +48,7 @@
 					<td><%=r2.getString(5) %></td>
 					<td><%=r2.getString(9) %></td>
 					<td><%=r2.getString(8) %></td>
+
 				</tr>
 					 <%
 					 }

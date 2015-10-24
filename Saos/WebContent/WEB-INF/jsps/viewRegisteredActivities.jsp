@@ -16,24 +16,50 @@
 		<div id="view-registered-activities-content">
 			View activities you have registered for<br>
 		</div>
-		<table id="my-registered-activities" class="table table-hover">
+		
+				<table id="my-registered-activities" class="table table-hover">
 			<thead>
 				<tr>
 					<th class="col-sm-4">Title</th>
 					<th class="col-sm-2">Starting</th>
 					<th class="col-sm-2">Ending</th>
 					<th class="col-sm-2">Participants</th>
-					<th class="col-sm-2">Host</th>
+					<th class="col-sm-2">Status</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href="viewSpecificActivity">Lab Coat Day</a></td>
-					<td>13:00 26/08/2015</td>
-					<td>15:00 26/08/2015</td>
-					<td>23</td>
-					<td>Bob</td>
+				
+				<%@ page import="java.sql.*"%>
+				 <% 
+				 try {
+					 Class.forName("com.mysql.jdbc.Driver");
+					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
+					 Statement s2 = conn2.createStatement();
+					 ResultSet r2 = s2.executeQuery("Select * from activity,studentactivity where studentId = "+session.getAttribute("user")+" and activity.activityId = studentactivity.activityId;");
+					 while(r2.next())
+					 {
+						String s =  r2.getString(2);
+						session.setAttribute("option", r2.getString(2));
+					 %>
+					 
+					<td><a href="viewSpecificActivity"><%=r2.getString(2) %> </a></td>
+					<td><%=r2.getString(4) %></td>
+					<td><%=r2.getString(5) %></td>
+					<td><%=r2.getString(9) %></td>
+					<td><%=r2.getString(10) %></td>
 				</tr>
+					 <%
+					 }
+					 r2.close();
+					 conn2.close();
+				 	 s2.close();
+				 } catch (Exception ex)
+				{
+					 out.println("Error with database; check the connection string\n and make sure you have the proper library");
+				}
+				 
+            %>
 			</tbody>
 		</table>
 	</div>

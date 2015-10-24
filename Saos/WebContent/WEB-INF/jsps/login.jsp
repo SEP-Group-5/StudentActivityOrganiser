@@ -23,6 +23,8 @@
 			<p>Welcome to the UTS Student Activity Organiser System</p>
 		</div>
 	</div>
+
+	
 	<div id="content" class="col-md-4 col-md-offset-4">
 		<form id="login-form" class="well col-md-8 col-md-offset-2">
 			<legend>Login into UTS:SAOS</legend>

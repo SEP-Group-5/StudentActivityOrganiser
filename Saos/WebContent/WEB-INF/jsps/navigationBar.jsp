@@ -27,6 +27,8 @@
 	});
 </script>
 
+
+
 </head>
 <nav class="navbar navbar-default">
 <div class="container">
@@ -63,7 +65,7 @@
 					+ <span class="caret"></span>
 			</a>
 				<ul class="dropdown-menu">
-					<li><a href="#">Logout</a></li>
+					<li><a href="/Saos/">Logout</a></li>
 				</ul></li>
 		</ul>
 	</div>
