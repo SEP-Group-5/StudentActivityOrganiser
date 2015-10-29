@@ -88,6 +88,9 @@
             %>
 			</table>
 			
+			<a class="btn btn-primary btn-lg" href="#"
+			role="button">Register for this activity</a>
+			
 			<h3>Currently registered users</h3>
 			<table id="activityRegisteredUsersTable" class="table table-hover">
 			<thead>
