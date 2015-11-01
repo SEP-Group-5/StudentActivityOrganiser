@@ -9,7 +9,25 @@
 </head>
 
 <body>
+<script language="javascript">
+function createActivity(){
+	System.out.println("heud")
+	try {
+					 Class.forName("com.mysql.jdbc.Driver");
+					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
+					 Statement statement = (Statement) con.createStatement();
+					 String insert = "INSERT INTO activity(title,description,start,end,rsvp,location,cost,capacity,status,hostID)	VALUES (title.value, description.value, start.value, end.value, rsvp.value, location.value, cost.value, capacity.value, 'Open', session.getAttribute(user))";
+					 statement.executeUpdate(insert);
+
+				 } catch (Exception)
+				{
+					 out.println("Error with database; check the connection string\n and make sure you have the proper library");
+				}
+	}
+</script>
 	<jsp:include page="navigationBar.jsp" />
+	<%@ page import="java.sql.*"%>
+	
 	<div class="container">
 		<div class="page-header">
 			<h1>Create new activity</h1>
@@ -83,8 +101,9 @@
 				<div class="modal-footer">
 					<div class="form-actions floatRight">
 						<a href="manageActivities"><button type="button"
-								class="btn btn-default">Cancel</button></a> <input type="submit"
-							value="Submit" class="btn btn-default btn-success">
+								class="btn btn-default">Cancel</button></a> 
+							<input type="button" value="Submit"
+							onClick="createActivity()" class="btn btn-default btn-success" >
 					</div>
 				</div>
 			</form:form>
