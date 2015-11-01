@@ -10,7 +10,7 @@
 	<jsp:include page="navigationBar.jsp" />
 	<div class="container">
 		<div class="page-header">
-			<h1>Activity Information - request.getParameter("test") </a></h1>
+			<h1>Activity Information - <%= request.getParameter("test"); %> </h1>
 		</div>
 		<div id="viewSpecificActivity">
 			<h3>Details of the activity</h3>
@@ -26,7 +26,7 @@
 					 Class.forName("com.mysql.jdbc.Driver");
 					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
 					 Statement s2 = conn2.createStatement();
-					 ResultSet r2 = s2.executeQuery("Select * from activity,studentactivity where studentId = "+request.getParameter("n")+" and activity.activityId = studentactivity.activityId;");
+					 ResultSet r2 = s2.executeQuery("Select * from activity,studentactivity where studentId = "+session.getAttribute("user")+" and activity.activityId = studentactivity.activityId and activity.title = \" " + request.getParameter("n") + " \" ");
 					 while(r2.next())
 					 {
 					 %>
@@ -113,7 +113,7 @@
 					 Class.forName("com.mysql.jdbc.Driver");
 					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
 					 Statement s2 = conn2.createStatement();
-					 ResultSet r2 = s2.executeQuery("Select firstName,lastName,email,phoneNumber from activity,studentactivity,student where activity.title = \"" + request.getParameter("n")+"\" and student.studentId=studentactivity.studentId and studentactivity.activityId = activity.activityId" );
+					 ResultSet r2 = s2.executeQuery("Select firstName,lastName,email,phoneNumber from activity,studentactivity,student where student.studentId=studentactivity.studentId and studentactivity.activityId = activity.activityId and activity.title = \"" + request.getParameter("n") + "\"");
 					 while(r2.next())
 					 {
 					 %>
