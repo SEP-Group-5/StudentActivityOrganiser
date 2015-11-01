@@ -27,7 +27,7 @@
 					<th class="col-sm-4">Title</th>
 					<th class="col-sm-2">Starting</th>
 					<th class="col-sm-2">Ending</th>
-					<th class="col-sm-2">Participants</th>
+					<th class="col-sm-2">Capacity</th>
 					<th class="col-sm-2">Status</th>
 				</tr>
 			</thead>
@@ -42,8 +42,10 @@
 					 ResultSet r2 = s2.executeQuery("Select * from activity where hostID = " + session.getAttribute("user"));
 					 while(r2.next())
 					 {
+						 String s =  r2.getString(2);
+					     session.setAttribute("option", r2.getString(2));
 					 %>
-					<td><%=r2.getString(2) %></a></td>
+					<td><a href="viewSpecificActivity?n=<%=r2.getString(2) %>"><%=r2.getString(2) %> </a></td>
 					<td><%=r2.getString(4) %></td>
 					<td><%=r2.getString(5) %></td>
 					<td><%=r2.getString(9) %></td>

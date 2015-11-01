@@ -37,13 +37,19 @@ public class ActivityController {
 		return mv;
 	}
 	
+	@RequestMapping("/createActivity")
+	public ModelAndView createActivity() {
+		ModelAndView mv = new ModelAndView("createActivity");
+		return mv;
+	}
+	
 	// create activity
-	@RequestMapping(value = "/createActivity", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/createActivity", method = RequestMethod.GET)
 	public String createActivity(ModelMap model) {
 		Activity activity = new Activity();
 		model.addAttribute("activity", activity);
 		return "createActivity";
-	}
+	}*/
 
 	// get activity details
 	@RequestMapping(value = "/createActivity", method = RequestMethod.POST)

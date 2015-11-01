@@ -44,6 +44,8 @@
 					 ResultSet r2 = s2.executeQuery("Select * from activity;");
 					 while(r2.next())
 					 {
+						 String s =  r2.getString(2);
+					     session.setAttribute("option", r2.getString(2));
 					 %>
 					<td><a href="viewSpecificActivity?n=<%=r2.getString(2) %>"><%=r2.getString(2) %> </a></td>
 					<td><%=r2.getString(4) %></td>

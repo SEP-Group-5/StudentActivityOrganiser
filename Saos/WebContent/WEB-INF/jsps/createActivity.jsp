@@ -16,7 +16,7 @@
 		</div>
 
 		<div id="new-activity">
-			<form method="POST"
+			<form method="POST" action="submittedActivity.jsp"
 				class="form-horizontal">
 
 				<div class="modal-body">
@@ -49,17 +49,17 @@
 						<label for="start" class="control-label col-md-1">Start:</label>
 						<div class="col-md-3">
 							<input type="date" name="start"
-								class="form-control" />
+								class="form-control datetimepicker" />
 						</div>
 						<label for="end" class="control-label col-md-1">End:</label>
 						<div class="col-md-3">
 							<input type="date" name="end"
-								class="form-control" />
+								class="form-control datetimepicker" />
 						</div>
 						<label for="rsvp" class="control-label col-md-1">RSVP:</label>
 						<div class="col-md-3">
 							<input type="date" name="rsvp"
-								class="form-control" />
+								class="form-control datetimepicker" />
 						</div>
 					</div>
 
@@ -86,9 +86,9 @@
 							class="btn btn-default">Cancel</button></a> 
 							<input type="submit"
 							value="Submit" class="btn btn-default btn-success">
+					 
 							
-
-					</div>
+				</div>
 				</div>
 			</form>
 		</div>

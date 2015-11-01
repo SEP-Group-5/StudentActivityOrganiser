@@ -7,13 +7,6 @@
 <title>UTS:SAOS - Viewing specific Activity</title>
 </head>
 <body>
-<script language="javascript">
-function openPopup()
-{
-  $('#divId').css('display','block');
-$('#divId').dialog();
-}
-</script>
 	<jsp:include page="navigationBar.jsp" />
 	<div class="container">
 		<div class="page-header">

@@ -35,17 +35,19 @@ public class Activity {
 	public Activity() {
 	}
 
-	public Activity(int id, String title, Date start, Date end, int hostId, String location,
-			String description, double cost, int capacity) {
+	public Activity(int id, String title, String description, Date start, Date end, Date rsvp, String location,
+			 double cost, int capacity, String status, int hostId) {
 		this.id = id;
 		this.title = title;
 		this.start = start;
 		this.end = end;
+		this.rsvp = rsvp;
 		this.hostId = hostId;
 		this.location = location;
 		this.description = description;
 		this.cost = cost;
 		this.capacity = capacity;
+		this.status = "OPEN";
 	}
 
 	public boolean matches(Status status) {

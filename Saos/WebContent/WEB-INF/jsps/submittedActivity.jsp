@@ -16,6 +16,7 @@
 		<div id="submittedActivity">
 			<h3>You have successfully submitted an activity application</h3>
 			
+			
 					<%@ page import="java.sql.*"%>
 	<%@ page import="java.util.*"%>
 	<%@ page import="java.text.*"%>
@@ -67,7 +68,7 @@
 		} catch (Exception ex) {
 			out.println("");
 		}
-	%>
+	%>	
 			
 			<table id="submittedActivityInformationTable"
 				class="table table-striped">
