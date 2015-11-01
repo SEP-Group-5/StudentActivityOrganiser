@@ -21,9 +21,9 @@
 			<thead>
 				<tr>
 					<th class="col-sm-4">Title</th>
+					<th class="col-sm-2">Description</th>
 					<th class="col-sm-2">Starting</th>
 					<th class="col-sm-2">Ending</th>
-					<th class="col-sm-2">Participants</th>
 					<th class="col-sm-2">Status</th>
 				</tr>
 			</thead>
@@ -34,7 +34,7 @@
 				 <% 
 				 try {
 					 Class.forName("com.mysql.jdbc.Driver");
-					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
+					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "password");
 					 Statement s2 = conn2.createStatement();
 					 ResultSet r2 = s2.executeQuery("Select * from activity,studentactivity where studentId = "+session.getAttribute("user")+" and activity.activityId = studentactivity.activityId;");
 					 while(r2.next())
@@ -43,10 +43,10 @@
 						session.setAttribute("option", r2.getString(2));
 					 %>
 					 
-					<td><a href="viewSpecificActivity"><%=r2.getString(2) %> </a></td>
+					<td><a href="viewSpecificActivity?n=<%=r2.getString(2) %>"><%=r2.getString(2) %> </a></td>
+					<td><%=r2.getString(3) %></td>
 					<td><%=r2.getString(4) %></td>
 					<td><%=r2.getString(5) %></td>
-					<td><%=r2.getString(9) %></td>
 					<td><%=r2.getString(10) %></td>
 				</tr>
 					 <%

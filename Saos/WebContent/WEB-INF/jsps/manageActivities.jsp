@@ -28,7 +28,7 @@
 					<th class="col-sm-2">Starting</th>
 					<th class="col-sm-2">Ending</th>
 					<th class="col-sm-2">Participants</th>
-					<th class="col-sm-2">Cost</th>
+					<th class="col-sm-2">Status</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -37,7 +37,7 @@
 				 <% 
 				 try {
 					 Class.forName("com.mysql.jdbc.Driver");
-					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
+					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "password");
 					 Statement s2 = conn2.createStatement();
 					 ResultSet r2 = s2.executeQuery("Select * from activity where hostID = " + session.getAttribute("user"));
 					 while(r2.next())
@@ -47,7 +47,7 @@
 					<td><%=r2.getString(4) %></td>
 					<td><%=r2.getString(5) %></td>
 					<td><%=r2.getString(9) %></td>
-					<td><%=r2.getString(8) %></td>
+					<td><%=r2.getString(10) %></td>
 
 				</tr>
 					 <%

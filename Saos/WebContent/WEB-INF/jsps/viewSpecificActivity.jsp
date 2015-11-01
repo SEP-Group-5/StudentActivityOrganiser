@@ -22,11 +22,13 @@
 							
 				<%@ page import="java.sql.*"%>
 				 <% 
+
 				 try {
 					 Class.forName("com.mysql.jdbc.Driver");
-					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
+					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "password");
 					 Statement s2 = conn2.createStatement();
-					 ResultSet r2 = s2.executeQuery("Select * from activity,studentactivity where studentId = "+session.getAttribute("user")+" and activity.activityId = studentactivity.activityId;");
+					 ResultSet r2 = s2.executeQuery("Select * from activity,studentactivity where studentId = "+session.getAttribute("user")+" and activity.activityId = studentactivity.activityId and activity.title = \"" + request.getParameter("n") + "\"");
+							/*  studentId =\""+session.getAttribute("user")+" and activity.activityId = studentactivity.activityId;"); */
 					 while(r2.next())
 					 {
 					 %>
@@ -70,10 +72,15 @@
 					<td>${capacity}</td>
 					<td><%=r2.getString(9) %></td>
 				</tr>
+								<tr>
+					<th class="col-md-4">Status</th>
+					<td>${status}</td>
+					<td><%=r2.getString(10) %></td>
+				</tr>
 				<tr>
 					<th class="col-md-4">Host</th>
 					<td>${organiser}</td>
-					<td><%=r2.getString(12) %></td>
+					<td><%=r2.getString(11) %></td>
 				</tr>
 				 <%
 					 }
@@ -108,9 +115,9 @@
 				 <% 
 				 try {
 					 Class.forName("com.mysql.jdbc.Driver");
-					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
+					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "password");
 					 Statement s2 = conn2.createStatement();
-					 ResultSet r2 = s2.executeQuery("Select firstName,lastName,email,phoneNumber from activity,studentactivity,student where activity.title = \"" + session.getAttribute("option") +"\" and student.studentId=studentactivity.studentId and studentactivity.activityId = activity.activityId" );
+					 ResultSet r2 = s2.executeQuery("Select firstName,lastName,email,phoneNumber from activity,studentactivity,student where student.studentId=studentactivity.studentId and studentactivity.activityId = activity.activityId and activity.title = \"" + request.getParameter("n") + "\"");
 					 while(r2.next())
 					 {
 					 %>

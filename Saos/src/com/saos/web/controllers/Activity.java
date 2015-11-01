@@ -17,29 +17,35 @@ public class Activity {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date rsvp;
 	
-	private Student host;
+	
+	private int hostId;
+	public int getHostId() {
+		return hostId;
+	}
+
+	public void setHostId(int hostId) {
+		this.hostId = hostId;
+	}
+
 	private String location;
 	private String description;
 	private double cost;
 	private int capacity;
-	private Status status;
-	private Students participants;
-
+	private String status;
 	public Activity() {
 	}
 
-	public Activity(int id, String title, Date start, Date end, Student host, String location,
+	public Activity(int id, String title, Date start, Date end, int hostId, String location,
 			String description, double cost, int capacity) {
 		this.id = id;
 		this.title = title;
 		this.start = start;
 		this.end = end;
-		this.host = host;
+		this.hostId = hostId;
 		this.location = location;
 		this.description = description;
 		this.cost = cost;
 		this.capacity = capacity;
-		this.status = Status.Open;
 	}
 
 	public boolean matches(Status status) {
@@ -74,24 +80,8 @@ public class Activity {
 		this.rsvp = rsvp;
 	}
 
-	public Students getParticipants() {
-		return participants;
-	}
-
-	public void setParticipants(Students participants) {
-		this.participants = participants;
-	}
-
 	public int getId() {
 		return id;
-	}
-
-	public Student getHost() {
-		return host;
-	}
-
-	public void setHost(Student host) {
-		this.host = host;
 	}
 
 	public void setId(int id) {
@@ -138,11 +128,12 @@ public class Activity {
 		this.capacity = capacity;
 	}
 
-	public Status getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Status status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
+
 }

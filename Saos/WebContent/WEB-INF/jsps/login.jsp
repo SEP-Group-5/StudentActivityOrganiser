@@ -43,12 +43,9 @@
 				 <% 
 				 try {
 					 Class.forName("com.mysql.jdbc.Driver");
-					 out.println("Driver working! \n");
-					 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
-					 out.println("connected to database! \n");
+					 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "password");
 					 PreparedStatement s = conn.prepareStatement("Select * from student where studentId = '" + request.getParameter("id")
 					 + "' and password = '" + request.getParameter("password") +"'");
-					 out.println("Fields can be checked! \n");
 					 ResultSet r = s.executeQuery();
 					 if(r.next())
 					 {

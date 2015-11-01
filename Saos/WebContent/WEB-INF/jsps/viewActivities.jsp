@@ -14,7 +14,7 @@
 						<h1>Upcoming activities</h1>		
 		</div>
 		<div id="manage-activities-content">
-			Manage activities you have created <br>
+			View all upcoming activities<br>
 			<a href="createActivity"><button id="create-activity-button"
 					type="button" class="btn btn-info">
 					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -28,7 +28,7 @@
 					<th class="col-sm-4">Title</th>
 					<th class="col-sm-2">Starting</th>
 					<th class="col-sm-2">Ending</th>
-					<th class="col-sm-2">Participants</th>
+					<th class="col-sm-2">Capacity</th>
 					<th class="col-sm-2">Status</th>
 				</tr>
 			</thead>
@@ -39,7 +39,7 @@
 				 <% 
 				 try {
 					 Class.forName("com.mysql.jdbc.Driver");
-					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "12340");
+					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "password");
 					 Statement s2 = conn2.createStatement();
 					 ResultSet r2 = s2.executeQuery("Select * from activity;");
 					 while(r2.next())
