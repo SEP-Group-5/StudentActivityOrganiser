@@ -9,9 +9,7 @@
 </head>
 
 <body>
-
 	<jsp:include page="navigationBar.jsp" />
-
 	<div class="container">
 		<div class="page-header">
 			<h1>Create new activity</h1>
@@ -85,9 +83,11 @@
 				<div class="modal-footer">
 					<div class="form-actions floatRight">
 						<a href="manageActivities"><button type="button"
-							class="btn btn-default">Cancel</button></a> <input type="submit"
+							class="btn btn-default">Cancel</button></a> 
+							<input type="submit"
 							value="Submit" class="btn btn-default btn-success">
 							
+
 					</div>
 				</div>
 			</form>

@@ -10,7 +10,7 @@
 	<jsp:include page="navigationBar.jsp" />
 	<div class="container">
 		<div class="page-header">
-			<h1>Activity Information - <%=session.getAttribute("option")%></h1>
+			<h1>Activity Information</h1>
 		</div>
 		<div id="viewSpecificActivity">
 			<h3>Details of the activity</h3>
@@ -28,7 +28,6 @@
 					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "password");
 					 Statement s2 = conn2.createStatement();
 					 ResultSet r2 = s2.executeQuery("Select * from activity,studentactivity where studentId = "+session.getAttribute("user")+" and activity.activityId = studentactivity.activityId and activity.title = \"" + request.getParameter("n") + "\"");
-							/*  studentId =\""+session.getAttribute("user")+" and activity.activityId = studentactivity.activityId;"); */
 					 while(r2.next())
 					 {
 					 %>
@@ -94,6 +93,9 @@
 				 
             %>
 			</table>
+			
+			<a class="btn btn-primary btn-lg" href="#"
+			role="button">Register for this activity</a>
 			
 			<h3>Currently registered users</h3>
 			<table id="activityRegisteredUsersTable" class="table table-hover">
