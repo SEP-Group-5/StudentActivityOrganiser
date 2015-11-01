@@ -7,6 +7,13 @@
 <title>UTS:SAOS - Viewing specific Activity</title>
 </head>
 <body>
+<script language="javascript">
+function openPopup()
+{
+  $('#divId').css('display','block');
+$('#divId').dialog();
+}
+</script>
 	<jsp:include page="navigationBar.jsp" />
 	<div class="container">
 		<div class="page-header">
@@ -94,8 +101,9 @@
             %>
 			</table>
 			
-			<a class="btn btn-primary btn-lg" href="#"
+			<a class="btn btn-primary btn-lg" href="viewRegisteredActivities"
 			role="button">Register for this activity</a>
+			
 			
 			<h3>Currently registered users</h3>
 			<table id="activityRegisteredUsersTable" class="table table-hover">

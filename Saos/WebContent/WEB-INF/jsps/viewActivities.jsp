@@ -45,7 +45,7 @@
 					 while(r2.next())
 					 {
 					 %>
-					<td><%=r2.getString(2) %></a></td>
+					<td><a href="viewSpecificActivity?n=<%=r2.getString(2) %>"><%=r2.getString(2) %> </a></td>
 					<td><%=r2.getString(4) %></td>
 					<td><%=r2.getString(5) %></td>
 					<td><%=r2.getString(9) %></td>
