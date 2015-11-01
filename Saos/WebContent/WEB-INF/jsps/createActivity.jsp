@@ -24,7 +24,7 @@
 					<div class="form-group">
 						<label for="title" class="control-label col-md-1">Title:</label>
 						<div class="col-md-11">
-							<form:input type="text" path="title" id="title"
+							<form:input type="text" path="title" id="title" name="title"
 								class="form-control input-sm" />
 						</div>
 					</div>
@@ -33,7 +33,7 @@
 						<label for="description" class="control-label col-md-1">Description:</label>
 						<div class="col-md-11">
 							<form:input type="text" path="description" id="description"
-								class="form-control input-sm" />
+								name="description" class="form-control input-sm" />
 						</div>
 					</div>
 
@@ -41,24 +41,24 @@
 						<label for="location" class="control-label col-md-1">Location:</label>
 						<div class="col-md-11">
 							<form:input type="text" path="location" id="location"
-								class="form-control input-sm" />
+								name="location" class="form-control input-sm" />
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="start" class="control-label col-md-1">Start:</label>
 						<div class="col-md-3">
-							<form:input type="text" path="start" id="start"
+							<form:input type="text" path="start" id="start" name="start"
 								class="form-control input-sm datetimepicker" />
 						</div>
 						<label for="end" class="control-label col-md-1">End:</label>
 						<div class="col-md-3">
-							<form:input type="text" path="end" id="end"
+							<form:input type="text" path="end" id="end" name="end"
 								class="form-control input-sm datetimepicker" />
 						</div>
 						<label for="rsvp" class="control-label col-md-1">RSVP:</label>
 						<div class="col-md-3">
-							<form:input type="text" path="rsvp" id="rsvp"
+							<form:input type="text" path="rsvp" id="rsvp" name="rsvp"
 								class="form-control input-sm datetimepicker" />
 						</div>
 					</div>
@@ -68,14 +68,14 @@
 						<div class="col-md-3">
 							<div class=" input-group">
 								<span class="input-group-addon">$</span>
-								<form:input type="text" path="cost" id="cost"
+								<form:input type="text" path="cost" id="cost" name="cost"
 									class="form-control input-sm" />
 							</div>
 						</div>
 						<label for="capacity" class="control-label col-md-1">Capacity:</label>
 						<div class="col-md-3">
 							<form:input type="text" path="capacity" id="capacity"
-								class="form-control input-sm" />
+								name="capacity" class="form-control input-sm" />
 						</div>
 					</div>
 				</div>
@@ -84,9 +84,10 @@
 					<div class="form-actions floatRight">
 						<a href="manageActivities"><button type="button"
 								class="btn btn-default">Cancel</button></a> <input type="submit"
-							value="Submit" class="btn btn-default btn-success">
+														value="Submit" class="btn btn-default btn-success">
 					</div>
 				</div>
+
 			</form:form>
 		</div>
 	</div>
