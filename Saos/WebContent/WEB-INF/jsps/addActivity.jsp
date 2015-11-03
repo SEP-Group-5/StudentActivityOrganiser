@@ -16,14 +16,14 @@
 		</div>
 
 		<div id="new-activity">
-	<form id="create" method ="POST" >
+	<form id="create" method ="POST" class="form-horizontal">
 		<table>
 			<tr>
 				<td>
 					Title:
 				</td>
 				<td>
-						<input type="text" name="titlet"/>
+						<input type="text" name="titlet" class="form-control"/>
 				</td>
 			</tr>
 			<tr>
@@ -31,7 +31,7 @@
 					Desciption:
 				</td>
 				<td>
-					<input type="text" name="desciptiont"/>
+					<input type="text" name="desciptiont" class="form-control"/>
 				</td>
 			</tr>
 			<tr>
@@ -39,7 +39,7 @@
 					Start:
 				</td>
 				<td>
-					<input type="text" name="startt"/>
+					<input type="text" name="startt" class="form-control"/>
 				</td>
 			</tr>
 			<tr>
@@ -47,7 +47,7 @@
 					End:
 				</td>
 				<td>
-					<input type="text" name="endt"/>
+					<input type="text" name="endt" class="form-control"/>
 				</td>
 			</tr>
 			<tr>
@@ -55,7 +55,7 @@
 					RSVP:
 				</td>
 				<td>
-					<input type="text" name="rsvpt"/>
+					<input type="text" name="rsvpt" class="form-control"/>
 				</td>
 			</tr>
 				<tr>
@@ -63,7 +63,7 @@
 					Location
 				</td>
 				<td>
-					<input type="text" name="locationt"/>
+					<input type="text" name="locationt" class="form-control"/>
 				</td>
 			</tr>
 			<tr>
@@ -71,7 +71,7 @@
 					Cost:
 				</td>
 				<td>
-					<input type="text" name="costt"/>
+					<input type="text" name="costt" class="form-control"/>
 				</td>
 			</tr>
 			<tr>
@@ -79,12 +79,12 @@
 					Capacity:
 				</td>
 				<td>
-					<input type="text" name="capacityt"/>
+					<input type="text" name="capacityt" class="form-control"/>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" value="add" name="add"/>
+					<input type="submit" value="add" name="add" class="form-control"/>
 					
 				</td>
 			</tr>
@@ -130,6 +130,9 @@
 						 conn =  DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "password");
 						 PreparedStatement s0 = conn.prepareStatement(query);
 						 s0.executeUpdate(query);
+						 %>
+						 <jsp:forward page="viewActivities.jsp" />
+						 <% 
 									 
 								 } catch (Exception ex)
 									{
