@@ -22,7 +22,7 @@
 				<div class="modal-body">
 
 					<div class="form-group">
-						<label for="title" class="control-label col-md-1">Title:</label>
+						<label>Title:</label>
 						<div class="col-md-11">
 							<input type="text" name="title"
 								class="form-control" />
@@ -90,6 +90,56 @@
 							
 				</div>
 				</div>
+				<%@ page import="java.sql.*"%>
+				<%
+		if(request.getParameter("add") != null)
+		{
+		String query = "";
+		java.util.Date fDate = new java.util.Date();
+		java.text.SimpleDateFormat formattedDate = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		java.sql.Date sqlstart = null;
+			java.sql.Date sqlend = null;
+			java.sql.Date sqlrsvp = null;
+			
+			try{
+				
+				java.util.Date start = formattedDate.parse(request.getParameter("startt"));
+				sqlstart = new java.sql.Date(start.getTime());		
+				
+				java.util.Date end = formattedDate.parse(request.getParameter("endt"));
+				sqlend = new java.sql.Date(end.getTime());		
+
+				java.util.Date rsvp = formattedDate.parse(request.getParameter("rsvpt"));
+				sqlrsvp = new java.sql.Date(rsvp.getTime());
+
+
+			}catch (Exception ex)
+			{
+
+				out.print("nope\n");
+			}
+				
+			try{
+				
+				 query =  "INSERT INTO `activity` (`title`, `description`, `start`, `end`, `rsvp`, `location`, `cost`, `capacity`, `status`, `hostId`) VALUES ('"+
+						request.getParameter("titlet") +"', '"+ request.getParameter("desciptiont") +"', '" + formattedDate.format(sqlstart)
+								  +"', '"+ formattedDate.format(sqlend) +"', '" +  formattedDate.format(sqlrsvp) +"', '"+ 
+										request.getParameter("locationt") +"', '"+ request.getParameter("costt") +"', '"+ Integer.parseInt(request.getParameter("capacityt").trim()) +"', '"+ 
+												request.getParameter("statust") +"', '"+ Integer.parseInt(session.getAttribute("user").toString()) +"')";
+						 Class.forName("com.mysql.jdbc.Driver");
+						 Connection conn = null;
+						 conn =  DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "password");
+						 PreparedStatement s0 = conn.prepareStatement(query);
+						 s0.executeUpdate(query);
+									 
+								 } catch (Exception ex)
+									{
+									 
+										 out.println("Error = " + ex.getMessage());
+									} 
+		}
+		%>
+				
 			</form>
 		</div>
 	</div>

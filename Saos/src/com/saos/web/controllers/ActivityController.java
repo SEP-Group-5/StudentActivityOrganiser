@@ -24,6 +24,14 @@ public class ActivityController {
 		return mv;
 	}
 	
+	
+	//upcoming activities
+	@RequestMapping("/addActivity")
+	public ModelAndView addActivities() {
+		ModelAndView mv = new ModelAndView("addActivity");
+		return mv;
+	}
+	
 	//specific upcoming activities
 	@RequestMapping("/viewSpecificActivity")
 	public ModelAndView getSpecificActivityInformation() {

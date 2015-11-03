@@ -6,7 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>UTS:SAOS - Viewing specific Activity</title>
 </head>
+<form method="post">
+
 <body>
+<script language="javascript">
+function openPopup()
+{
+  $('#divId').css('display','block');
+$('#divId').dialog();
+}
+</script>
 	<jsp:include page="navigationBar.jsp" />
 	<div class="container">
 		<div class="page-header">
@@ -22,14 +31,16 @@
 							
 				<%@ page import="java.sql.*"%>
 				 <% 
-
+				 String actID = null;
 				 try {
 					 Class.forName("com.mysql.jdbc.Driver");
 					 Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "password");
 					 Statement s2 = conn2.createStatement();
-					 ResultSet r2 = s2.executeQuery("Select * from activity,studentactivity where studentId = "+session.getAttribute("user")+" and activity.activityId = studentactivity.activityId and activity.title = \"" + request.getParameter("n") + "\"");
+					 ResultSet r2 = s2.executeQuery("Select * from activity where activity.title = \"" + request.getParameter("n") + "\"");
+					
 					 while(r2.next())
 					 {
+						 actID = r2.getString(1);
 					 %>
 				<tr>
 					<th class="col-md-4">Title</th>
@@ -90,13 +101,42 @@
 				{
 					 out.println("Error with database; check the connection string\n and make sure you have the proper library");
 				}
+				 %>
 				 
-            %>
 			</table>
+				
+		<input type="submit" class="btn btn-primary btn-lg" value="Register" name="add"/>
+		
+		<input type="submit" class="btn btn-primary btn-lg" value="Back to all activities" name="back"/>
+		
+			<%
+				 if(request.getParameter("add") != null)
+					{
+					
+					try{
+						
+						 String query =  "INSERT INTO `studentactivity` (`studentid`, `activityid`) VALUES ('"+
+								 Integer.parseInt(session.getAttribute("user").toString().toString()) +"', '"+ actID +"')";
+								 Class.forName("com.mysql.jdbc.Driver");
+								 Connection conn = null;
+								 conn =  DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "password");
+								 PreparedStatement s0 = conn.prepareStatement(query);
+								 s0.executeUpdate(query);
+								 %><jsp:forward page="viewActivities.jsp" /><%
+										 } catch (Exception ex)
+											{
+											 
+												 out.println("Error = " + ex.getMessage());
+											}
+					}
 			
-			<a class="btn btn-primary btn-lg" href="viewRegisteredActivities"
-			role="button">Register for this activity</a>
+			 if(request.getParameter("back") != null)
+			 {
+				 %><jsp:forward page="viewActivities.jsp" /><%
+
+			 }
 			
+            %> 
 			
 			<h3>Currently registered users</h3>
 			<table id="activityRegisteredUsersTable" class="table table-hover">
@@ -146,8 +186,7 @@
             %>
 			</table>
 		</div>
-		<a class="btn btn-primary btn-lg" href="viewActivities"
-			role="button">Back to all activities</a>
+		
 	</div>
 </body>
 </html>

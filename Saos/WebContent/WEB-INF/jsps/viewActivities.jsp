@@ -15,7 +15,7 @@
 		</div>
 		<div id="manage-activities-content">
 			View all upcoming activities<br>
-			<a href="createActivity"><button id="create-activity-button"
+			<a href="addActivity"><button id="create-activity-button"
 					type="button" class="btn btn-info">
 					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 					Create new activity
