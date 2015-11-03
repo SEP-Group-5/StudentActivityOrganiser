@@ -122,7 +122,7 @@ $('#divId').dialog();
 								 conn =  DriverManager.getConnection("jdbc:mysql://localhost/saos", "root", "password");
 								 PreparedStatement s0 = conn.prepareStatement(query);
 								 s0.executeUpdate(query);
-								 %><jsp:forward page="viewActivities.jsp" /><%
+								 %><jsp:forward page="viewRegisteredActivities.jsp" /><%
 										 } catch (Exception ex)
 											{
 											 
